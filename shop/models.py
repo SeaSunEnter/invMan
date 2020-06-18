@@ -73,10 +73,14 @@ class Product(models.Model):
     related_name='products',
     on_delete=models.CASCADE
   )
-  barcode = models.TextField(
-    max_length=48,
-    default=str(id)
-  )
+  # barcode = models.TextField(
+  #   max_length=48,
+  #   default=str(100+id)
+  # )
+  @property
+  def bqcode(self):
+    return (100 + self.id)
+  
   made = models.TextField(
     max_length=10, 
     default=datetime.now().year

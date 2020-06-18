@@ -14,6 +14,9 @@
         {{ product.category }}
       </a>
     </h2> 
-    <p class="price">${{ product.price }}</p> 
+    <h3>
+      <p class="price">{{ product.price }} VNĐ</p> 
+    </h3>
+    <img src="{% static 'img/bqcode/' %}{{ product.bqcode }}.png">
   {{ product.description|linebreaks }} 
 </div> {% endblock %}

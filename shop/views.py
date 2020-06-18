@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
+from .bqcode import SaveBQCodetoFnm
+import sys, os
 
 def product_list(request, category_slug=None):
   category = None
@@ -22,6 +24,15 @@ def product_detail(request, id, slug):
     id=id, slug=slug,
     available=True
   ) 
+
+  SaveBQCodetoFnm(
+    'code39', 
+    str(product.bqcode), 
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + \
+    '/shop/static/img/bqcode/' + \
+    str(product.bqcode) + '.png'
+  )
+
   return render(
     request,
     'shop/product/detail.html',
