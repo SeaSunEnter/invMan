@@ -1,7 +1,7 @@
 asgiref==3.2.7
 Django==3.0.6
 ghostscript==0.6
-Pillow==7.1.2
+Pillow==8.1.1
 psycopg2-binary==2.8.5
 PyMySQL==0.9.3
 python-barcode==0.11.0
